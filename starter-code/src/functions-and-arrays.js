@@ -2,11 +2,11 @@
 
 function maxOfTwoNumbers (a, b) {
   if (a > b) {
-    console.log(a) }
+    return a; }
   else if (a < b) {
-    console.log(b)
-  } else {
-    console.log("They are equal");
+    return b;
+  }  else {
+    return "First and Second parameter equal";
   }
 };
 
@@ -14,24 +14,25 @@ function maxOfTwoNumbers (a, b) {
 // Finding Longest Word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord(words) {
+function findLongestWord(arr) {
+  if (!arr.length) {
+    return null;
+  };
   let word = "";
-  for (let i = 0; i < words.length; i++) {
-    if (word.length < words[i].length) {
-      word = words[i];
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i];
     }
   }
   return word;
 };
-
-console.log(findLongestWord(words));
-
+findLongestWord(words);
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-let sumAllValues = function (arr) {
+let sumArray = function (arr) {
   let number = 0;
   for (let i = 0; i < arr.length; i++) {
     number = number + arr[i];
@@ -39,13 +40,16 @@ let sumAllValues = function (arr) {
   return number;
 }
 
-console.log(sumAllValues(numbers));
+sumArray(numbers);
 
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-let averageAllValues = function (arr) {
+let averageNumbers = function (arr) {
+  if (!arr.length) {
+    return null;
+  };
   let number = 0;
   for (let i = 0; i < arr.length; i++) {
     number = number + arr[i];
@@ -53,7 +57,7 @@ let averageAllValues = function (arr) {
   return number/arr.length;
 }
 
-console.log(averageAllValues(numbersAvg));
+averageNumbers(numbersAvg);
 
 
 
@@ -72,7 +76,10 @@ const wordsArr = [
 ];
 
 
-function averageWordLength (arr) { 
+function averageWordLength (arr) {
+  if (!arr.length) {
+    return null;
+  }; 
   let sumOfCharacters = 0;
 for(let i = 0; i < arr.length; i++) {
   sumOfCharacters = sumOfCharacters + arr[i].length;
@@ -80,7 +87,7 @@ for(let i = 0; i < arr.length; i++) {
   return sumOfCharacters/arr.length;
 };
 
-console.log(averageWordLength(wordsArr))
+averageWordLength(wordsArr);
 
 
 // Unique Arrays
@@ -98,6 +105,25 @@ const wordsUnique = [
   'bring'
 ];
 
+
+function uniquifyArray(arr) {
+  if (!arr.length) {
+    return [];
+  }; 
+ let newArray = [];
+ for (let word of arr) {
+   if (newArray.indexOf(word)>= 0) {
+arr.splice(arr.indexOf(word),1);
+   } else {
+     newArray.push(word);
+   }
+ }
+ return newArray;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
+/*Other way but doesn't pass tests:
 function uniquifyArray(arr) {
   arr.sort();
   for (let i = 0; i < arr.length; i++) {
@@ -106,9 +132,8 @@ function uniquifyArray(arr) {
     }
   }
 return arr;
-}
+}*/
 
-console.log(uniquifyArray(wordsUnique));
 
 // Finding Elements
 const wordsFind = [
@@ -121,13 +146,22 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
-/*Let's create a simple array search.
 
-Declare a function named `doesWordExist` that will take in an array of words as one argument, and a word to search for as the other. 
-Return `true` if it exists, otherwise, return `false`. **Don't** use `indexOf` for this one.*/
-
-
-
+function doesWordExist (arr, word) {
+  if (!arr.length) {
+    return false;
+  };
+  let doesItExist = "";
+  for (let value of arr) {
+    if (value === word) {
+      doesItExist = true;
+      break;
+    } else {
+      doesItExist = false;
+    }
+  }
+  return doesItExist;
+};
 
 
 // Counting Repetition
@@ -144,6 +178,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+/*Declare a function named `howManyTimes` that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+*/
+
+function howManyTimes (arr, word) {
+  let number = 0;
+    for (let value of arr) {
+      if (value === word) {
+        number += 1;
+    }
+  }
+  return number;
+};
 
 // Bonus
 
