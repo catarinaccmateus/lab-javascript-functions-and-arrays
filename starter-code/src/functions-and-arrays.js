@@ -6,7 +6,7 @@ function maxOfTwoNumbers (a, b) {
   else if (a < b) {
     return b;
   }  else {
-    return "First and Second parameter equal";
+    return a;
   }
 };
 
@@ -215,3 +215,33 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+/*function greatestProduct (arr) {
+  let arrayOfNumbers = [];
+  let result = 0;
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 20; j++) {
+if (arr[i+1] && arr[i+1][j] && arr[i-1] && arr[i-1][j] && arr[i][j+1] && arr[i][j-1]) {
+      result = (arr[i][j] * arr[i+1][j] * arr[i-1][j] * arr[i][j+1] * arr[i][j-1]);
+    }
+    arrayOfNumbers.push(result);
+    }  
+  }
+  console.log(arrayOfNumbers);
+  let sortingFromHighest = arrayOfNumbers.sort(function(a, b){return b-a});
+  return sortingFromHighest[0];
+};*/
+function greatestProduct (arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+if (arr[i+1] && arr[i+1][j] && arr[i-1] && arr[i-1][j] && arr[i][j+1] && arr[i][j-1]) {
+      let currentValue = (arr[i+1][j] * arr[i-1][j] * arr[i][j+1] * arr[i][j-1]);
+    result = Math.max(result, currentValue)
+    }
+   }  
+  }
+  return result;
+};
+
+greatestProduct(matrix);
