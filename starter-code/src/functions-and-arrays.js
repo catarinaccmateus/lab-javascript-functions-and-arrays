@@ -1,15 +1,61 @@
-// Find the maximum
+// Define a function `maxOfTwoNumbers` that takes two numbers as arguments and returns the largest.
+
+function maxOfTwoNumbers (a, b) {
+  if (a > b) {
+    console.log(a) }
+  else if (a < b) {
+    console.log(b)
+  } else {
+    console.log("They are equal");
+  }
+};
+
 
 // Finding Longest Word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(words) {
+  let word = "";
+  for (let i = 0; i < words.length; i++) {
+    if (word.length < words[i].length) {
+      word = words[i];
+    }
+  }
+  return word;
+};
+
+console.log(findLongestWord(words));
+
 
 // Calculating a Sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+let sumAllValues = function (arr) {
+  let number = 0;
+  for (let i = 0; i < arr.length; i++) {
+    number = number + arr[i];
+  }
+  return number;
+}
+
+console.log(sumAllValues(numbers));
+
 // Calculate the Average
 
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+let averageAllValues = function (arr) {
+  let number = 0;
+  for (let i = 0; i < arr.length; i++) {
+    number = number + arr[i];
+  }
+  return number/arr.length;
+}
+
+console.log(averageAllValues(numbersAvg));
+
+
 
 // Array of Strings
 const wordsArr = [
@@ -24,6 +70,18 @@ const wordsArr = [
   'fuel',
   'palace'
 ];
+
+
+function averageWordLength (arr) { 
+  let sumOfCharacters = 0;
+for(let i = 0; i < arr.length; i++) {
+  sumOfCharacters = sumOfCharacters + arr[i].length;
+}
+  return sumOfCharacters/arr.length;
+};
+
+console.log(averageWordLength(wordsArr))
+
 
 // Unique Arrays
 const wordsUnique = [
@@ -40,6 +98,18 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  arr.sort();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i+1]) {
+      arr.splice(i,1)
+    }
+  }
+return arr;
+}
+
+console.log(uniquifyArray(wordsUnique));
+
 // Finding Elements
 const wordsFind = [
   'machine',
@@ -51,6 +121,14 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+/*Let's create a simple array search.
+
+Declare a function named `doesWordExist` that will take in an array of words as one argument, and a word to search for as the other. 
+Return `true` if it exists, otherwise, return `false`. **Don't** use `indexOf` for this one.*/
+
+
+
+
 
 // Counting Repetition
 const wordsCount = [
